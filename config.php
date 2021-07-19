@@ -1,16 +1,14 @@
-<?
-define('PATH', 'C:/OpenServer/domains/test1');
+<?php
+define('PATH', 'C:\Users\User\Downloads\open_server_5_3_7_basic\OpenServer\domains\park\\');
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'parks');
+define('DB_NAME', 'park');
 define('DB_USER', 'root');
-define('DB__PASSWORD', 'root');
+define('DB_PASSWORD', 'root');
+define('DB_CHARSET', 'utf8mb4_unicode_ci');
 
-require_once PATH.'/php-activerecord/ActiveRecord.php';
+spl_autoload_register('init' );
 
- ActiveRecord\Config::initialize(function($cfg)
-4 {
-5     $cfg->set_model_directory('models');
-6     $cfg->set_connections(array(
-7         'development' => 'mysql://'.DB_USER.':'.DB__PASSWORD.'@'.DB_HOST.'/'.DB_NAME));
-8 });
+function init($className) {
+    include_once PATH."functions\\$className.php";
+}

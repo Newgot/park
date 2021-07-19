@@ -1,6 +1,5 @@
-<?
+<?php
+
 include_once 'config.php';
 
-
-
-echo DB_HOST;
+$db = new DB;
