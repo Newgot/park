@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 define('BASE_PATH', 'C:\OpenServer\domains\park\\');
 
 define('DB_HOST', 'localhost');

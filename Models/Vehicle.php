@@ -14,33 +14,21 @@ abstract class Vehicle implements VehicleInterface
         $this->price = $price;
     }
 
-    /**
-     * @return string
-     */
-    public function getModel()
+    public function getModel() : string
     {
         return $this->model;
     }
 
-    /**
-     * @return string
-     */
-    public function getPrice()
+    public function getPrice() : string
     {
         return $this->price . ' km/h';
     }
 
-    /**
-     * @return string
-     */
-    public function getSpeed()
+    public function getSpeed() : string
     {
         return '$ ' . $this->speed;
     }
 
-    /**
-     * @return string
-     */
     public function getInfo()
     {
 

@@ -1,6 +1,6 @@
 <?php
 
-spl_autoload_register('class_init' );
+spl_autoload_register('class_init');
 
 function class_init($className) {
     $paths = include_once BASE_PATH.'functions/paths.php';
