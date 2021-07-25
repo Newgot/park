@@ -2,4 +2,5 @@
 
 include_once 'config.php';
 
-$vehicle = new Car;
+$car = new Car;
+s($car->getInfo(2));

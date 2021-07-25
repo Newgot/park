@@ -3,7 +3,12 @@
 
 class Car extends Vehicle
 {
-    protected $type = 'Car';
+    protected $type;
+    
+    public function __construct()
+    {
+        $this->type = '"car"';
+    }
 
 
 }
