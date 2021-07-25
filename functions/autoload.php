@@ -3,8 +3,11 @@
 spl_autoload_register('class_init');
 
 function class_init($className) {
-    $paths = include_once BASE_PATH.'functions/paths.php';
+    $paths = include BASE_PATH.'functions/paths.php';
     foreach ($paths as $path) {
-        include_once BASE_PATH.$path.'/'.$className.'.php';
+        $filename = BASE_PATH.$path.'/'.$className;
+        if (file_exists($filename.'.php')) include_once $filename.'.php';
+        if (file_exists($filename.'Interface.php')) include_once $filename.'Interface.php';
+
     }
 }

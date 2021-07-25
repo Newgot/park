@@ -2,4 +2,4 @@
 
 include_once 'config.php';
 
-$db = new DB;
+$vehicle = new Car;

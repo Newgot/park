@@ -3,8 +3,8 @@
 
 interface VehicleInterface
 {
-    public function getModel();
-    public function getSpeed();
-    public function getPrice();
-    public function getInfo();
+    public function getModel(int $id);
+    public function getSpeed(int $id);
+    public function getPrice(int $id);
+    public static function getInfo(int $id);
 }

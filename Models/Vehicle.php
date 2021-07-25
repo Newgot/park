@@ -1,36 +1,41 @@
 <?php
 
-
 abstract class Vehicle implements VehicleInterface
 {
-    protected $model;
-    protected $speed;
-    protected $price;
+    protected $type;
 
-    public function __construct($model, $speed, $price)
+    public function __construct()
     {
-        $this->model = $model;
-        $this->speed = $speed;
-        $this->price = $price;
+        $this->type = '*';
     }
 
-    public function getModel() : string
+    public function getModel(int $id): string
     {
-        return $this->model;
+        $vecicle = $this->getVehicle($id);
+        return $vecicle['model'];
     }
 
-    public function getPrice() : string
+    public function getPrice(int $id): string
     {
-        return $this->price . ' km/h';
+        $vecicle = $this->getVehicle($id);
+        return '$ ' . $vecicle['price'];
     }
 
-    public function getSpeed() : string
+    public function getSpeed(int $id): string
     {
-        return '$ ' . $this->speed;
+        $vecicle = $this->getVehicle($id);
+        return $vecicle['speed'] . ' km/h';
     }
 
-    public function getInfo()
+    public static function getInfo($id)
     {
+        self::getInfo($id);
+    } 
 
+    protected function getVehicle ($id)
+    {
+        $db = new DB;
+        $sql = "SELECT * FROM vehicles WHERE id_vehicle = $id AND type = {$this->type}";
+        return $db->query($sql);
     }
 }
