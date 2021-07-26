@@ -85,4 +85,42 @@ class Park
         $this->db->query($sql);
         return true;
     }
+
+    public function getVehicleToHightPrice(): string
+    {
+        $sql = "SELECT * FROM vehicles ORDER BY price DESC LIMIT 1";
+        $vehicle = $this->db->query($sql)[0];
+        $type = $vehicle['type'];
+        $idVehicle = $vehicle['id_vehicle'];
+        $vehicleModel = new $type();
+        return $vehicleModel->getInfo($idVehicle);
+    }
+
+    public function getAllSum(): int
+    {
+        $sql = "SELECT SUM(price) as sum FROM vehicles";
+        $sum = $this->db->query($sql)[0]['sum'];
+        return (int)$sum;
+    }
+
+    public function getAvgSum(): int
+    {
+        $sql = "SELECT AVG(price) as sum FROM vehicles";
+        $sum = $this->db->query($sql)[0]['sum'];
+        return (int)$sum;
+    }
+    
+    public function getAllVehicles()
+    {
+        $sql = "SELECT * FROM vehicles";
+        $rows =$this->db->query($sql);
+        $resArr = [];
+        foreach ($rows as $row) {
+            $type = $row['type'];
+            $idVehicle = $row['id_vehicle'];
+            $vehicleModel = new $type();
+            $resArr[] = $vehicleModel->getInfo($idVehicle);
+        }
+        return json_encode($resArr);
+    }
 }

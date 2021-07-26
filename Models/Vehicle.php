@@ -7,7 +7,7 @@ abstract class Vehicle implements VehicleInterface
 
     public function __construct()
     {
-        $this->type = '0 or true';
+        $this->type = 'Vehicle';
         $this->db = new DB;
     }
 
@@ -39,7 +39,7 @@ abstract class Vehicle implements VehicleInterface
     {
         $idVehicle = $id > 0 ? $id : "0 or true";
         $db = new DB;
-        $sql = "SELECT * FROM vehicles WHERE (id_vehicle = $idVehicle) AND (type = {$this->type})";
+        $sql = "SELECT * FROM vehicles WHERE (id_vehicle = $idVehicle) AND (type = '{$this->type}')";
         return $db->query($sql)[0];
     }
 

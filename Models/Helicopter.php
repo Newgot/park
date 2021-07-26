@@ -2,7 +2,7 @@
 
 class Helicopter extends Vehicle
 {
-    protected $type;
+    public $type;
     
     public function __construct()
     {
