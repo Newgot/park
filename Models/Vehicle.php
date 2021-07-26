@@ -2,11 +2,13 @@
 
 abstract class Vehicle implements VehicleInterface
 {
-    protected $type;
+    public $type;
+    protected $db;
 
     public function __construct()
     {
         $this->type = '0 or true';
+        $this->db = new DB;
     }
 
     public function getModel(int $id): string
@@ -29,11 +31,11 @@ abstract class Vehicle implements VehicleInterface
 
     public function getInfo(int $id): string
     {   
-        $type = ucwords(trim($this->type, '"'));
+        $type = ucwords($this->type);
         return "$type: {$this->getModel($id)}, {$this->getSpeed($id)}, {$this->getPrice($id)}";
     }
 
-    protected function getVehicle (int $id): array
+    public function getVehicle (int $id): array
     {
         $idVehicle = $id > 0 ? $id : "0 or true";
         $db = new DB;
@@ -41,9 +43,8 @@ abstract class Vehicle implements VehicleInterface
         return $db->query($sql)[0];
     }
 
-    public function getVehicles() : array 
+    protected function getVehicles() : array 
     {
-
         return $this->getVehicle(0);
     }
 }

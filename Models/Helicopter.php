@@ -6,6 +6,6 @@ class Helicopter extends Vehicle
     
     public function __construct()
     {
-        $this->type = '"helicopter"';
+        $this->type = 'Helicopter';
     }
 }

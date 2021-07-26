@@ -2,5 +2,5 @@
 
 include_once 'config.php';
 
-$car = new Car;
-s($car->getInfo(2));
+$park = new Park();
+d($park->removeFromPark(3,1));

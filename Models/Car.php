@@ -6,6 +6,6 @@ class Car extends Vehicle
     
     public function __construct()
     {
-        $this->type = '"car"';
+        $this->type = 'Car';
     }
 }
