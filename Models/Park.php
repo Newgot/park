@@ -1,6 +1,6 @@
 <?php
 
-class Park
+class Park implements ParkInterface
 {
     protected $db;
 
